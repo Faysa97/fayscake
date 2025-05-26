@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sipariş Ver - Fayscake</title>
+  <link rel="stylesheet" href="menu.css" />
+  <link rel="stylesheet" href="siparis.css" />
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="logo">
+        <h1>Fayscake</h1>
+        <p>Tatlı Sipariş Sayfası</p>
+      </div>
+      <nav>
+        <ul class="menu">
+          <li><a href="index.html">Ana Sayfa</a></li>
+          <li><a href="menu.html">Menümüz</a></li>
+          <li><a href="siparis.html" class="active">Sipariş Ver</a></li>
+          <li><a href="hakkimizda.html">Hakkımızda</a></li>
+          <li><a href="iletisim.html">İletişim</a></li>
+        </ul>
+        <div class="menu-toggle">
+          <span></span><span></span><span></span>
+        </div>
+      </nav>
+    </header>
+
+    <section class="order-form-section">
+      <h2>Sipariş Formu</h2>
+      <form class="order-form">
+        <div class="form-group">
+          <label for="name">Ad Soyad</label>
+          <input type="text" id="name" name="name" required />
+        </div>
+
+        <div class="form-group">
+          <label for="phone">Telefon</label>
+          <input type="tel" id="phone" name="phone" required />
+        </div>
+
+        <div class="form-group">
+          <label for="product">Ürün Seçimi</label>
+          <select id="product" name="product" required>
+            <option value="">Ürün Seçiniz</option>
+            <option value="Çilekli Rüya">Çilekli Rüya</option>
+            <option value="Çikolata Şelalesi">Çikolata Şelalesi</option>
+            <option value="Makaron Kutusu">Makaron Kutusu</option>
+            <option value="Kırmızı Kadife Cupcake">Kırmızı Kadife Cupcake</option>
+            <option value="Özel Tasarım">Özel Tasarım</option>
+            <optgroup label="🎂 Pastalar">
+              <option value="Çilekli Rüya">Çilekli Rüya</option>
+              <option value="Karamelli Tutku">Karamelli Tutku</option>
+              <option value="Meyveli Şölen">Meyveli Şölen</option>
+              <option value="Çikolata Şelalesi">Çikolata Şelalesi</option>
+              <option value="Orman Meyveli">Orman Meyveli</option>
+              <option value="Limonlu Ferahlık">Limonlu Ferahlık</option>
+            </optgroup>
+        
+            <optgroup label="🍪 Kurabiyeler">
+              <option value="Çikolata Parçacıklı">Çikolata Parçacıklı</option>
+              <option value="Cevizli Kurabiye">Cevizli Kurabiye</option>
+              <option value="Fındık Kremalı">Fındık Kremalı</option>
+              <option value="Fıstıklı Kurabiye">Fıstıklı Kurabiye</option>
+            </optgroup>
+        
+            <optgroup label="🍬 Makaronlar">
+              <option value="Karışık Makaron">Karışık Makaron</option>
+              <option value="Frambuazlı Makaron">Frambuazlı Makaron</option>
+              <option value="Çikolatalı Makaron">Çikolatalı Makaron</option>
+              <option value="Vanilyalı Makaron">Vanilyalı Makaron</option>
+            </optgroup>
+        
+            <optgroup label="🧁 Cupcake'ler">
+              <option value="Kırmızı Kadife">Kırmızı Kadife</option>
+              <option value="Çilekli Cupcake">Çilekli Cupcake</option>
+              <option value="Limonlu Cupcake">Limonlu Cupcake</option>
+              <option value="Çikolatalı Cupcake">Çikolatalı Cupcake</option>
+            </optgroup>
+        
+            <optgroup label="✨ Özel Tasarımlar">
+              <option value="Doğum Günü Pastası">Doğum Günü Pastası</option>
+              <option value="Nişan Pastası">Nişan Pastası</option>
+              <option value="Düğün Pastası">Düğün Pastası</option>
+              <option value="Çocuk Pastası">Çocuk Pastası</option>
+            </optgroup>
+          </select>
+          
+        </div>
+        
+
+        <div class="form-group">
+          <label for="date">Teslimat Tarihi</label>
+          <input type="date" id="date" name="date" required />
+        </div>
+
+        <div class="form-group">
+          <label for="note">Sipariş Notu</label>
+          <textarea id="note" name="note" rows="4" placeholder="Özel istek, not vs."></textarea>
+        </div>
+
+        <button type="submit" class="btn">Siparişi Gönder</button>
+      </form>
+    </section>
+
+    <section class="contact-info">
+      <h2>Yardıma mı ihtiyacınız var?</h2>
+      <p>📞 +90 555 123 4567 &nbsp;&nbsp;&nbsp; ✉️ info@fayscake.com</p>
+    </section>
+  </div>
+
+  <script src="script.js"></script>
+  <script src="siparis.js"></script>
+</body>
+</html>

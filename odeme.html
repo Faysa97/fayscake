@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Ödeme - Fayscake</title>
+  <link rel="stylesheet" href="menu.css" />
+  <link rel="stylesheet" href="odeme.css" />
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="logo">
+        <h1>Fayscake</h1>
+        <p>Ödeme Sayfası</p>
+      </div>
+    </header>
+
+    <section class="payment-section">
+      <h2>Ödeme Bilgileri</h2>
+      <form class="payment-form">
+        <p id="order-summary"></p>
+
+        <div class="form-group">
+          <label for="cardName">Kart Üzerindeki İsim</label>
+          <input type="text" id="cardName" required>
+        </div>
+
+        <div class="form-group">
+          <label for="cardNumber">Kart Numarası</label>
+          <input type="text" id="cardNumber" maxlength="19" placeholder="XXXX XXXX XXXX XXXX" required>
+        </div>
+
+        <div class="form-group double">
+          <div>
+            <label for="expDate">Son Kullanma Tarihi</label>
+            <input type="text" id="expDate" placeholder="AA/YY" maxlength="5" required>
+          </div>
+          <div>
+            <label for="cvv">CVV</label>
+            <input type="password" id="cvv" maxlength="4" required>
+          </div>
+        </div>
+
+        <button type="submit" class="btn">Ödemeyi Tamamla</button>
+      </form>
+    </section>
+  </div>
+  <script src="script.js"></script>
+  <script src="odeme.js"></script>
+</body>
+</html>

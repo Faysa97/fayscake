@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Hakkımızda | Fayscake</title>
+  <link rel="stylesheet" href="menu.css" />
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <h1>Fayscake</h1>
+      <p>Tatlı Dünyasına Hoş Geldiniz</p>
+    </div>
+    <nav>
+      <ul class="menu">
+        <li><a href="index.html">Ana Sayfa</a></li>
+        <li><a href="menu.html">Menümüz</a></li>
+        <li><a href="siparis.html">Sipariş Ver</a></li>
+        <li><a href="hakkimizda.html" class="active">Hakkımızda</a></li>
+        <li><a href="iletisim.html">İletişim</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="about-hero">
+    <div class="hero-content">
+      <h2>Biz Kimiz?</h2>
+      <p>Fayscake ailesi olarak, yılların deneyimiyle tatlıya olan tutkumuzu sizlerle buluşturuyoruz. Her lokmada mutluluk yaratmak için buradayız!</p>
+    </div>
+  </section>
+
+  <section class="about-content">
+    <div class="about-text">
+      <h3>Lezzetin ve Sanatın Buluşması</h3>
+      <p>
+        Fayscake, 2010 yılında İstanbul'da kuruldu. El yapımı pastalarımız,
+        taze ve doğal malzemelerle özenle hazırlanmaktadır. Müşteri
+        memnuniyetini ve kaliteyi her zaman ön planda tutuyoruz.
+      </p>
+      <p>
+        Özel günlerinizi tatlandırmak için düğün pastalarından butik tasarım
+        tatlılara kadar birçok seçenek sunuyoruz.
+      </p>
+    </div>
+    <div class="about-image" style="background-image: url('https://i.pinimg.com/736x/8d/3a/83/8d3a83e9b833563cc7120352089f94db.jpg');"></div>
+  </section>
+
+  <footer>
+    <div class="footer-content">
+      <div class="footer-logo">
+        <h3>Fayscake</h3>
+        <p>Tatlı Dünyası</p>
+      </div>
+      <div class="footer-links">
+        <div class="footer-column">
+          <h4>Sayfalar</h4>
+          <ul>
+            <li><a href="index.html">Ana Sayfa</a></li>
+            <li><a href="menu.html">Menümüz</a></li>
+            <li><a href="siparis.html">Sipariş Ver</a></li>
+            <li><a href="hakkimizda.html">Hakkımızda</a></li>
+            <li><a href="iletisim.html">İletişim</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h4>Ürünlerimiz</h4>
+          <ul>
+            <li><a href="menu.html#pastalar">Pastalar</a></li>
+            <li><a href="menu.html#kurabiyeler">Kurabiyeler</a></li>
+            <li><a href="menu.html#makaron">Makaron</a></li>
+            <li><a href="menu.html#ozel">Özel Tasarımlar</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h4>Çalışma Saatlerimiz</h4>
+          <ul class="working-hours">
+            <li>Pazartesi - Cuma: 09:00 - 20:00</li>
+            <li>Cumartesi: 10:00 - 22:00</li>
+            <li>Pazar: 10:00 - 18:00</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="copyright">
+      &copy; 2025 Fayscake. Tüm hakları saklıdır.
+    </div>
+  </footer>
+
+  <script >document.addEventListener("DOMContentLoaded", function () {
+    const toggle = document.querySelector(".menu-toggle");
+    const menu = document.querySelector(".menu");
+  
+    toggle.addEventListener("click", () => {
+      menu.classList.toggle("active");
+    });
+  });
+  </script>
+</body>
+</html>

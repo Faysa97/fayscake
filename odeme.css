@@ -1,0 +1,62 @@
+.payment-section {
+    padding: 4rem 5%;
+    text-align: center;
+    background-color: white;
+  }
+  
+  .payment-section h2 {
+    font-size: 2rem;
+    color: #FF69B4;
+    margin-bottom: 2rem;
+    font-family: 'Pacifico', cursive;
+  }
+  
+  .payment-form {
+    max-width: 500px;
+    margin: 0 auto;
+    background-color: #FFF0F5;
+    padding: 2rem;
+    border-radius: 20px;
+    box-shadow: 0 10px 20px rgba(255, 105, 180, 0.1);
+    text-align: left;
+  }
+  
+  .form-group {
+    margin-bottom: 1.5rem;
+  }
+  
+  .form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #FF69B4;
+    font-weight: 600;
+  }
+  
+  .form-group input {
+    width: 100%;
+    padding: 0.8rem;
+    border: 2px solid #FFB6C1;
+    border-radius: 10px;
+    font-size: 1rem;
+    outline: none;
+  }
+  
+  .form-group.double {
+    display: flex;
+    gap: 1rem;
+  }
+  
+  .form-group.double > div {
+    flex: 1;
+  }
+  
+  #order-summary {
+    background-color: #fff;
+    border: 2px dashed #FFB6C1;
+    padding: 1rem;
+    border-radius: 10px;
+    margin-bottom: 1.5rem;
+    font-weight: 500;
+    color: #333;
+  }
+  

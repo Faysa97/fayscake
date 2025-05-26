@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fayscake - Tatlı Dünyası</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand:wght@400;500;700&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Quicksand', sans-serif;
+            background-color: #FFF0F5;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
+            position: relative;
+        }
+        
+        .logo {
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+        
+        .logo h1 {
+            font-family: 'Pacifico', cursive;
+            font-size: 5rem;
+            color: #FF69B4;
+            text-shadow: 3px 3px 0px rgba(255, 105, 180, 0.2);
+            animation: float 3s ease-in-out infinite;
+        }
+        
+        .logo p {
+            font-size: 1.5rem;
+            color: #FF69B4;
+            margin-top: 0.5rem;
+        }
+        
+        .contact-info {
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 2rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(255, 105, 180, 0.2);
+            text-align: center;
+            max-width: 600px;
+            width: 100%;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .contact-info h2 {
+            font-size: 2rem;
+            color: #FF69B4;
+            margin-bottom: 1.5rem;
+            font-family: 'Pacifico', cursive;
+        }
+        
+        .contact-info p {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            color: #FF69B4;
+        }
+        
+        .contact-info .phone {
+            font-weight: bold;
+            font-size: 1.5rem;
+            color: #FF1493;
+        }
+        
+        .contact-info .email {
+            font-weight: bold;
+            color: #FF1493;
+        }
+        
+        .contact-info .address {
+            margin-top: 1.5rem;
+            font-style: italic;
+        }
+        
+        .social-links {
+            margin-top: 1.5rem;
+        }
+        
+        .social-links a {
+            display: inline-block;
+            margin: 0 10px;
+            color: #FF69B4;
+            font-size: 1.5rem;
+            transition: transform 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            transform: scale(1.2);
+        }
+        
+        /* Tatlı Karakterler */
+        .character {
+            position: absolute;
+            width: 80px;
+            height: 80px;
+            background-size: contain;
+            background-repeat: no-repeat;
+            animation: bounce 2s ease-in-out infinite;
+        }
+        
+        #cake1 {
+            top: 10%;
+            left: 5%;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M50,20c0,0-30-5-30,10v40c0,15,30,10,30,10s30,5,30-10V30C80,15,50,20,50,20z' fill='%23FFB6C1'/%3E%3Cpath d='M20,30h60v10H20V30z' fill='%23FFC0CB'/%3E%3Cpath d='M20,50h60v10H20V50z' fill='%23FFC0CB'/%3E%3Ccircle cx='50' cy='15' r='5' fill='%23FF69B4'/%3E%3Ccircle cx='40' cy='10' r='3' fill='%23FF69B4'/%3E%3Ccircle cx='60' cy='10' r='3' fill='%23FF69B4'/%3E%3Cpath d='M45,65c0,0,5,5,10,0' stroke='%23FF69B4' stroke-width='2' fill='none'/%3E%3Ccircle cx='40' cy='60' r='2' fill='%23FF69B4'/%3E%3Ccircle cx='60' cy='60' r='2' fill='%23FF69B4'/%3E%3C/svg%3E");
+            animation-delay: 0.5s;
+        }
+        
+        #cupcake1 {
+            top: 20%;
+            right: 5%;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M40,50v30h20V50' fill='%23D2691E'/%3E%3Cpath d='M30,50c0,0-10-20,20-20s20,20,20,20H30z' fill='%23FFB6C1'/%3E%3Cpath d='M35,35c0,0,5-10,15,0' fill='none' stroke='%23FFC0CB' stroke-width='2'/%3E%3Ccircle cx='40' cy='40' r='3' fill='%23FF69B4'/%3E%3Ccircle cx='60' cy='40' r='3' fill='%23FF69B4'/%3E%3Ccircle cx='50' cy='30' r='5' fill='%23FF69B4'/%3E%3Cpath d='M45,45c0,0,5,5,10,0' stroke='%23FF69B4' stroke-width='2' fill='none'/%3E%3C/svg%3E");
+            animation-delay: 0.7s;
+        }
+        
+        #donut1 {
+            bottom: 20%;
+            left: 8%;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='30' fill='%23FFB6C1'/%3E%3Ccircle cx='50' cy='50' r='10' fill='%23FFF0F5'/%3E%3Cpath d='M40,65c0,0,10,10,20,0' stroke='%23FF69B4' stroke-width='2' fill='none'/%3E%3Ccircle cx='40' cy='40' r='3' fill='%23FF69B4'/%3E%3Ccircle cx='60' cy='40' r='3' fill='%23FF69B4'/%3E%3Cpath d='M30,40 L35,37' stroke='%23FFFFFF' stroke-width='2'/%3E%3Cpath d='M70,40 L65,37' stroke='%23FFFFFF' stroke-width='2'/%3E%3Cpath d='M30,60 L35,63' stroke='%23FFFFFF' stroke-width='2'/%3E%3Cpath d='M70,60 L65,63' stroke='%23FFFFFF' stroke-width='2'/%3E%3C/svg%3E");
+            animation-delay: 0.2s;
+        }
+        
+        #cookie1 {
+            bottom: 10%;
+            right: 10%;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='30' fill='%23D2691E'/%3E%3Ccircle cx='40' cy='40' r='5' fill='%23800000'/%3E%3Ccircle cx='60' cy='40' r='5' fill='%23800000'/%3E%3Ccircle cx='50' cy='60' r='5' fill='%23800000'/%3E%3Ccircle cx='35' cy='55' r='4' fill='%23800000'/%3E%3Ccircle cx='65' cy='55' r='4' fill='%23800000'/%3E%3Cpath d='M40,65c0,0,10,10,20,0' stroke='%23800000' stroke-width='2' fill='none'/%3E%3Ccircle cx='37' cy='37' r='2' fill='%23FFFFFF' opacity='0.3'/%3E%3Ccircle cx='57' cy='37' r='2' fill='%23FFFFFF' opacity='0.3'/%3E%3C/svg%3E");
+            animation-delay: 0.9s;
+        }
+
+        #macaron1 {
+            top: 40%;
+            left: 10%;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cellipse cx='50' cy='40' rx='25' ry='15' fill='%23FFB6C1'/%3E%3Cellipse cx='50' cy='60' rx='25' ry='15' fill='%23FFC0CB'/%3E%3Cpath d='M30,40 Q50,55 70,40' fill='%23FFFFFF' opacity='0.5'/%3E%3Ccircle cx='40' cy='35' r='2' fill='%23FF69B4'/%3E%3Ccircle cx='60' cy='35' r='2' fill='%23FF69B4'/%3E%3Cpath d='M45,45c0,0,5,5,10,0' stroke='%23FF69B4' stroke-width='1' fill='none'/%3E%3C/svg%3E");
+            animation-delay: 0.4s;
+        }
+
+        #icecream1 {
+            top: 35%;
+            right: 12%;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M40,50 L50,80 L60,50' fill='%23D2691E'/%3E%3Cpath d='M30,30 Q50,0 70,30 Q70,50 50,50 Q30,50 30,30' fill='%23FFB6C1'/%3E%3Ccircle cx='40' cy='30' r='3' fill='%23FF69B4'/%3E%3Ccircle cx='60' cy='30' r='3' fill='%23FF69B4'/%3E%3Cpath d='M45,40c0,0,5,5,10,0' stroke='%23FF69B4' stroke-width='2' fill='none'/%3E%3C/svg%3E");
+            animation-delay: 0.3s;
+        }
+        
+        /* Animasyonlar */
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-15px);
+            }
+        }
+        
+        @keyframes bounce {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-15px);
+            }
+        }
+        
+        /* Medya Sorguları */
+        @media screen and (max-width: 768px) {
+            .logo h1 {
+                font-size: 3rem;
+            }
+            
+            .logo p {
+                font-size: 1.2rem;
+            }
+            
+            .contact-info {
+                padding: 1.5rem;
+            }
+            
+            .character {
+                width: 60px;
+                height: 60px;
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            .logo h1 {
+                font-size: 2.5rem;
+            }
+            
+            .contact-info h2 {
+                font-size: 1.5rem;
+            }
+            
+            .contact-info p {
+                font-size: 1rem;
+            }
+            
+            .character {
+                width: 40px;
+                height: 40px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Tatlı Karakterler -->
+        <div class="character" id="cake1"></div>
+        <div class="character" id="cupcake1"></div>
+        <div class="character" id="donut1"></div>
+        <div class="character" id="cookie1"></div>
+        <div class="character" id="macaron1"></div>
+        <div class="character" id="icecream1"></div>
+        
+        <div class="logo">
+            <h1>Fayscake</h1>
+            <p>Tatlı Dünyasına Hoş Geldiniz</p>
+        </div>
+        
+        <div class="contact-info">
+            <h2>Bize Ulaşın</h2>
+            <p>Tatlı anlarınızı tatlandırmak için buradayız!</p>
+            <p class="phone">📞 +90 555 123 4567</p>
+            <p class="email">✉️ info@fayscake.com</p>
+            <p class="address">🏠 Tatlı Sokak, No: 42, Şekerköy/İstanbul</p>
+            
+            <div class="social-links">
+                <a href="#" title="Instagram">📸</a>
+                <a href="#" title="Facebook">👍</a>
+                <a href="#" title="Twitter">🐦</a>
+                <a href="#" title="WhatsApp">📱</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Tatlı karakterleri için rastgele hareket
+        document.addEventListener('DOMContentLoaded', function() {
+            const characters = document.querySelectorAll('.character');
+            
+            characters.forEach(character => {
+                character.addEventListener('mouseover', function() {
+                    this.style.transform = 'scale(1.2) rotate(10deg)';
+                });
+                
+                character.addEventListener('mouseout', function() {
+                    this.style.transform = 'scale(1) rotate(0)';
+                });
+            });
+            
+            // Sayfa yüklendiğinde hafif bir animasyon
+            setTimeout(() => {
+                document.querySelector('.logo').style.opacity = '1';
+                document.querySelector('.contact-info').style.opacity = '1';
+            }, 300);
+        });
+    </script>
+</body>
+</html>

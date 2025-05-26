@@ -1,0 +1,1261 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fayscake - Tatlı Dünyası</title>
+    <script src="script.js"></script>
+    
+    <style>
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand:wght@400;500;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Quicksand', sans-serif;
+    background-color: #FFF0F5;
+    overflow-x: hidden;
+    color: #555;
+    line-height: 1.6;
+}
+
+.container {
+    width: 100%;
+    min-height: 100vh;
+    position: relative;
+}
+
+/* HEADER VE NAVİGASYON */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 5%;
+    background-color: rgba(255, 255, 255, 0.9);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 15px rgba(255, 105, 180, 0.1);
+}
+
+.logo {
+    text-align: center;
+    flex: 1;
+}
+
+.logo h1 {
+    font-family: 'Pacifico', cursive;
+    font-size: 3rem;
+    color: #FF69B4;
+    text-shadow: 2px 2px 0px rgba(255, 105, 180, 0.2);
+    animation: float 3s ease-in-out infinite;
+}
+
+.logo p {
+    font-size: 1rem;
+    color: #FF69B4;
+    margin-top: 0.2rem;
+}
+
+nav {
+    flex: 2;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.menu {
+    display: flex;
+    list-style: none;
+}
+
+.menu li {
+    margin-left: 1.5rem;
+}
+
+.menu a {
+    text-decoration: none;
+    color: #FF69B4;
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    transition: all 0.3s ease;
+}
+
+.menu a:hover, .menu a.active {
+    background-color: rgba(255, 105, 180, 0.1);
+    color: #FF1493;
+}
+
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 21px;
+    cursor: pointer;
+}
+
+.menu-toggle span {
+    height: 3px;
+    width: 100%;
+    background-color: #FF69B4;
+    border-radius: 10px;
+}
+
+/* TATLI KARAKTERLER */
+.character {
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    animation: bounce 2s ease-in-out infinite;
+    z-index: 55;
+}
+
+#cake1 {
+    top: 10%;
+    left: 5%;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M50,20c0,0-30-5-30,10v40c0,15,30,10,30,10s30,5,30-10V30C80,15,50,20,50,20z' fill='%23FFB6C1'/%3E%3Cpath d='M20,30h60v10H20V30z' fill='%23FFC0CB'/%3E%3Cpath d='M20,50h60v10H20V50z' fill='%23FFC0CB'/%3E%3Ccircle cx='50' cy='15' r='5' fill='%23FF69B4'/%3E%3Ccircle cx='40' cy='10' r='3' fill='%23FF69B4'/%3E%3Ccircle cx='60' cy='10' r='3' fill='%23FF69B4'/%3E%3Cpath d='M45,65c0,0,5,5,10,0' stroke='%23FF69B4' stroke-width='2' fill='none'/%3E%3Ccircle cx='40' cy='60' r='2' fill='%23FF69B4'/%3E%3Ccircle cx='60' cy='60' r='2' fill='%23FF69B4'/%3E%3C/svg%3E");
+    animation-delay: 0.5s;
+}
+
+#cupcake1 {
+    top: 20%;
+    right: 5%;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M40,50v30h20V50' fill='%23D2691E'/%3E%3Cpath d='M30,50c0,0-10-20,20-20s20,20,20,20H30z' fill='%23FFB6C1'/%3E%3Cpath d='M35,35c0,0,5-10,15,0' fill='none' stroke='%23FFC0CB' stroke-width='2'/%3E%3Ccircle cx='40' cy='40' r='3' fill='%23FF69B4'/%3E%3Ccircle cx='60' cy='40' r='3' fill='%23FF69B4'/%3E%3Ccircle cx='50' cy='30' r='5' fill='%23FF69B4'/%3E%3Cpath d='M45,45c0,0,5,5,10,0' stroke='%23FF69B4' stroke-width='2' fill='none'/%3E%3C/svg%3E");
+    animation-delay: 0.7s;
+}
+
+#donut1 {
+    bottom: 10%;
+    left: 8%;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='30' fill='%23FFB6C1'/%3E%3Ccircle cx='50' cy='50' r='10' fill='%23FFF0F5'/%3E%3Cpath d='M40,65c0,0,10,10,20,0' stroke='%23FF69B4' stroke-width='2' fill='none'/%3E%3Ccircle cx='40' cy='40' r='3' fill='%23FF69B4'/%3E%3Ccircle cx='60' cy='40' r='3' fill='%23FF69B4'/%3E%3Cpath d='M30,40 L35,37' stroke='%23FFFFFF' stroke-width='2'/%3E%3Cpath d='M70,40 L65,37' stroke='%23FFFFFF' stroke-width='2'/%3E%3Cpath d='M30,60 L35,63' stroke='%23FFFFFF' stroke-width='2'/%3E%3Cpath d='M70,60 L65,63' stroke='%23FFFFFF' stroke-width='2'/%3E%3C/svg%3E");
+    animation-delay: 0.2s;
+}
+
+#cookie1 {
+    bottom: 30%;
+    right: 10%;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='30' fill='%23D2691E'/%3E%3Ccircle cx='40' cy='40' r='5' fill='%23800000'/%3E%3Ccircle cx='60' cy='40' r='5' fill='%23800000'/%3E%3Ccircle cx='50' cy='60' r='5' fill='%23800000'/%3E%3Ccircle cx='35' cy='55' r='4' fill='%23800000'/%3E%3Ccircle cx='65' cy='55' r='4' fill='%23800000'/%3E%3Cpath d='M40,65c0,0,10,10,20,0' stroke='%23800000' stroke-width='2' fill='none'/%3E%3Ccircle cx='37' cy='37' r='2' fill='%23FFFFFF' opacity='0.3'/%3E%3Ccircle cx='57' cy='37' r='2' fill='%23FFFFFF' opacity='0.3'/%3E%3C/svg%3E");
+    animation-delay: 0.9s;
+}
+
+#macaron1 {
+    top: 60%;
+    left: 10%;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cellipse cx='50' cy='40' rx='25' ry='15' fill='%23FFB6C1'/%3E%3Cellipse cx='50' cy='60' rx='25' ry='15' fill='%23FFC0CB'/%3E%3Cpath d='M30,40 Q50,55 70,40' fill='%23FFFFFF' opacity='0.5'/%3E%3Ccircle cx='40' cy='35' r='2' fill='%23FF69B4'/%3E%3Ccircle cx='60' cy='35' r='2' fill='%23FF69B4'/%3E%3Cpath d='M45,45c0,0,5,5,10,0' stroke='%23FF69B4' stroke-width='1' fill='none'/%3E%3C/svg%3E");
+    animation-delay: 0.4s;
+}
+
+#icecream1 {
+    top: 55%;
+    right: 12%;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M40,50 L50,80 L60,50' fill='%23D2691E'/%3E%3Cpath d='M30,30 Q50,0 70,30 Q70,50 50,50 Q30,50 30,30' fill='%23FFB6C1'/%3E%3Ccircle cx='40' cy='30' r='3' fill='%23FF69B4'/%3E%3Ccircle cx='60' cy='30' r='3' fill='%23FF69B4'/%3E%3Cpath d='M45,40c0,0,5,5,10,0' stroke='%23FF69B4' stroke-width='2' fill='none'/%3E%3C/svg%3E");
+    animation-delay: 0.3s;
+}
+
+/* HERO SECTION */
+.hero {
+    min-height: 70vh;
+    background: linear-gradient(rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.7)), url('images/hero-bg.jpg');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem 5%;
+    position: relative;
+}
+
+.hero-content {
+    text-align: center;
+    max-width: 700px;
+    padding: 2rem;
+    background-color: rgba(255, 240, 245, 0.8);
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(255, 105, 180, 0.3);
+}
+
+.hero-content h2 {
+    font-size: 2.5rem;
+    color: #FF69B4;
+    margin-bottom: 1rem;
+    font-family: 'Pacifico', cursive;
+}
+
+.hero-content p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+}
+
+.btn {
+    display: inline-block;
+    padding: 0.8rem 1.5rem;
+    background-color: #FF69B4;
+    color: white;
+    border: none;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(255, 105, 180, 0.3);
+}
+
+.btn:hover {
+    background-color: #FF1493;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(255, 105, 180, 0.4);
+}
+
+.btn-small {
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+}
+
+/* ÖNE ÇIKAN ÜRÜNLER */
+.featured-products {
+    padding: 4rem 5%;
+    text-align: center;
+}
+
+.featured-products h2, .services h2, .testimonials h2 {
+    font-size: 2.2rem;
+    color: #FF69B4;
+    margin-bottom: 2.5rem;
+    font-family: 'Pacifico', cursive;
+    text-align: center;
+}
+
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.product-card {
+    background-color: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 20px rgba(255, 105, 180, 0.1);
+    transition: all 0.3s ease;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.product-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(255, 105, 180, 0.2);
+}
+
+.product-image {
+    height: 200px;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+
+.product-tag {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    padding: 0.3rem 0.8rem;
+    background-color: #FF69B4;
+    color: white;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: bold;
+}
+
+.product-info {
+    padding: 1.5rem;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.product-info h3 {
+    font-size: 1.3rem;
+    color: #FF69B4;
+    margin-bottom: 0.8rem;
+}
+
+.product-info p {
+    margin-bottom: 1rem;
+    flex-grow: 1;
+}
+
+.product-price {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: auto;
+}
+
+.product-price span {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #FF69B4;
+}
+
+.view-more {
+    margin-top: 2rem;
+}
+
+/* HİZMETLERİMİZ */
+.services {
+    padding: 4rem 5%;
+    background-color: white;
+}
+
+.services-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.service-card {
+    padding: 2rem;
+    text-align: center;
+    background-color: #FFF0F5;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(255, 105, 180, 0.1);
+    transition: all 0.3s ease;
+}
+
+.service-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 25px rgba(255, 105, 180, 0.2);
+}
+
+.service-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.service-card h3 {
+    font-size: 1.3rem;
+    color: #FF69B4;
+    margin-bottom: 1rem;
+}
+
+/* MÜŞTERİ YORUMLARI */
+.testimonials {
+    padding: 4rem 5%;
+    position: relative;
+}
+
+.testimonials-slider {
+    display: flex;
+    overflow-x: hidden;
+    gap: 2rem;
+    margin-bottom: 2rem;
+    transition: all 0.5s ease;
+}
+
+.testimonial-card {
+    flex: 0 0 100%;
+    max-width: 100%;
+    background-color: white;
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(255, 105, 180, 0.1);
+}
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand:wght@400;500;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Quicksand', sans-serif;
+  background-color: #FFF0F5;
+  color: #555;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+.container {
+  width: 100%;
+  min-height: 100vh;
+  position: relative;
+}
+
+/* HEADER */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 5%;
+  background-color: rgba(255, 255, 255, 0.9);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 15px rgba(255, 105, 180, 0.1);
+}
+
+.logo {
+  text-align: center;
+  flex: 1;
+}
+
+.logo h1 {
+  font-family: 'Pacifico', cursive;
+  font-size: 3rem;
+  color: #FF69B4;
+  animation: float 3s ease-in-out infinite;
+}
+
+.logo p {
+  font-size: 1rem;
+  color: #FF69B4;
+}
+
+nav {
+  flex: 2;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.menu {
+  display: flex;
+  list-style: none;
+}
+
+.menu li {
+  margin-left: 1.5rem;
+}
+
+.menu a {
+  text-decoration: none;
+  color: #FF69B4;
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  transition: all 0.3s ease;
+}
+
+.menu a:hover, .menu a.active {
+  background-color: rgba(255, 105, 180, 0.1);
+  color: #FF1493;
+}
+
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30px;
+  height: 21px;
+  cursor: pointer;
+}
+
+.menu-toggle span {
+  height: 3px;
+  width: 100%;
+  background-color: #FF69B4;
+  border-radius: 10px;
+}
+
+/* HERO */
+.hero {
+  min-height: 60vh;
+  background: linear-gradient(rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.7)), url('images/hero-bg.jpg');
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 5%;
+  position: relative;
+}
+
+.hero-content {
+  text-align: center;
+  max-width: 700px;
+  background-color: rgba(255, 240, 245, 0.8);
+  border-radius: 20px;
+  padding: 2rem;
+  box-shadow: 0 10px 30px rgba(255, 105, 180, 0.3);
+}
+
+.hero-content h2 {
+  font-size: 2.5rem;
+  color: #FF69B4;
+  font-family: 'Pacifico', cursive;
+  margin-bottom: 1rem;
+}
+
+.hero-content p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+}
+
+.btn {
+  display: inline-block;
+  padding: 0.8rem 1.5rem;
+  background-color: #FF69B4;
+  color: white;
+  border: none;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn:hover {
+  background-color: #FF1493;
+  transform: translateY(-3px);
+}
+
+.btn-small {
+  padding: 0.4rem 1rem;
+  font-size: 0.9rem;
+}
+
+/* ÜRÜNLER */
+.featured-products {
+  padding: 4rem 5%;
+  text-align: center;
+}
+
+.featured-products h2 {
+  font-size: 2.2rem;
+  color: #FF69B4;
+  margin-bottom: 2rem;
+  font-family: 'Pacifico', cursive;
+}
+
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 2rem;
+}
+
+.product-card {
+  background-color: white;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 10px 20px rgba(255, 105, 180, 0.1);
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.product-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 30px rgba(255, 105, 180, 0.2);
+}
+
+.product-image {
+  height: 200px;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+.product-tag {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  padding: 0.3rem 0.8rem;
+  background-color: #FF69B4;
+  color: white;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: bold;
+}
+
+.product-info {
+  padding: 1.5rem;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.product-info h3 {
+  font-size: 1.3rem;
+  color: #FF69B4;
+  margin-bottom: 0.8rem;
+}
+
+.product-info p {
+  margin-bottom: 1rem;
+  flex-grow: 1;
+}
+
+.product-price {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: auto;
+}
+
+.product-price span {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #FF69B4;
+}
+
+/* HİZMETLER */
+.services {
+  padding: 4rem 5%;
+  background-color: white;
+  text-align: center;
+}
+
+.services h2 {
+  font-size: 2.2rem;
+  color: #FF69B4;
+  margin-bottom: 2rem;
+  font-family: 'Pacifico', cursive;
+}
+
+.services-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 2rem;
+}
+
+.service-card {
+  padding: 2rem;
+  background-color: #FFF0F5;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(255, 105, 180, 0.1);
+  transition: all 0.3s ease;
+}
+
+.service-card:hover {
+  transform: translateY(-10px);
+}
+
+.service-icon {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.service-card h3 {
+  font-size: 1.3rem;
+  color: #FF69B4;
+  margin-bottom: 0.5rem;
+}
+
+/* İLETİŞİM */
+.contact-info {
+  padding: 4rem 5%;
+  text-align: center;
+  background-color: #FFF0F5;
+}
+
+.contact-info h2 {
+  font-size: 2.2rem;
+  color: #FF69B4;
+  font-family: 'Pacifico', cursive;
+  margin-bottom: 1.5rem;
+}
+
+.contact-info .phone,
+.contact-info .email,
+.contact-info .address {
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+}
+
+.social-links {
+  margin: 1.5rem 0;
+}
+
+.social-links a {
+  font-size: 1.5rem;
+  margin: 0 10px;
+  text-decoration: none;
+  display: inline-block;
+  transition: transform 0.3s ease;
+}
+
+.social-links a:hover {
+  transform: scale(1.2);
+}
+
+.newsletter {
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.newsletter h3 {
+  color: #FF69B4;
+  margin-bottom: 1rem;
+}
+
+.newsletter form {
+  display: flex;
+  gap: 10px;
+}
+
+.newsletter input {
+  flex: 1;
+  padding: 0.8rem;
+  border: 2px solid #FFB6C1;
+  border-radius: 30px;
+  outline: none;
+}
+
+/* FOOTER */
+footer {
+  background-color: #FF69B4;
+  color: white;
+  padding: 3rem 5% 1rem;
+}
+
+.footer-content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.footer-logo h3 {
+  font-family: 'Pacifico', cursive;
+  font-size: 2rem;
+}
+
+.footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.footer-column h4 {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+}
+
+.footer-column ul {
+  list-style: none;
+}
+
+.footer-column li {
+  margin-bottom: 0.5rem;
+}
+
+.footer-column a {
+  color: white;
+  text-decoration: none;
+}
+
+.footer-column a:hover {
+  text-decoration: underline;
+}
+
+.working-hours li {
+  margin-bottom: 0.5rem;
+}
+
+.copyright {
+  text-align: center;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .menu {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: white;
+    width: 100%;
+    max-width: 300px;
+    flex-direction: column;
+    padding: 1rem;
+    border-radius: 0 0 10px 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transform: translateY(-150%);
+    transition: transform 0.3s ease;
+  }
+
+  .menu.active {
+    transform: translateY(0);
+  }
+
+  .menu li {
+    margin: 0.5rem 0;
+  }
+
+  .menu-toggle {
+    display: flex;
+  }
+
+  .footer-content {
+    flex-direction: column;
+  }
+
+  .newsletter form {
+    flex-direction: column;
+  }
+}
+.comment-section {
+    padding: 4rem 5%;
+    background-color: #FFF0F5;
+    text-align: center;
+}
+
+.comment-section h2 {
+    font-size: 2rem;
+    color: #FF69B4;
+    font-family: 'Pacifico', cursive;
+    margin-bottom: 2rem;
+}
+
+#comment-form {
+    max-width: 600px;
+    margin: 0 auto 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+#comment-form input,
+#comment-form textarea {
+    padding: 0.8rem;
+    border-radius: 15px;
+    border: 2px solid #FFB6C1;
+    font-family: 'Quicksand', sans-serif;
+    font-size: 1rem;
+    resize: none;
+}
+
+#comments-container {
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+.comment {
+    background-color: white;
+    padding: 1rem 1.5rem;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(255, 105, 180, 0.1);
+    margin-bottom: 1rem;
+    color: #555;
+}
+
+.comment strong {
+    color: #FF69B4;
+}
+
+.comment {
+    background-color: white;
+    padding: 1rem 1.5rem;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(255, 105, 180, 0.1);
+    margin-bottom: 1rem;
+    color: #555;
+}
+
+
+.testimonial-text {
+    font-style:
+
+        </style>
+
+    }
+
+
+</head>
+<body>
+   
+
+    <div class="container">
+        <!-- Tatlı Karakterler -->
+        <div class="character" id="cake1"></div>
+        <div class="character" id="cupcake1"></div>
+        <div class="character" id="donut1"></div>
+        <div class="character" id="cookie1"></div>
+        <div class="character" id="macaron1"></div>
+        <div class="character" id="icecream1"></div>
+        
+        <!-- Header ve Navigasyon -->
+        <header>
+            <div class="logo">
+                <h1>Fayscake</h1>
+                <p>Tatlı Dünyasına Hoş Geldiniz</p>
+            </div>
+            
+            <nav>
+                <ul class="menu">
+                    <li><a href="index.html" class="active">Ana Sayfa</a></li>
+                    <li><a href="menu.html">Menümüz</a></li>
+                    <li><a href="siparis.html">Sipariş Ver</a></li>
+                    <li><a href="hakkimizda.html">Hakkımızda</a></li>
+                    <li><a href="iletisim.html">İletişim</a></li>
+                </ul>
+                <div class="menu-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </nav>
+        </header>
+        
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-content">
+                <h2>Tatlı Hayaller, Gerçek Lezzetler</h2>
+                <p>El yapımı, özenle hazırlanan lezzetlerimiz ile özel anlarınızı tatlandırıyoruz.</p>
+                <a href="menu.html" class="btn">Menümüzü Keşfedin</a>
+            </div>
+        </section>
+        
+        <!-- Öne Çıkan Ürünler -->
+        <section class="featured-products">
+            <h2>Öne Çıkan Lezzetlerimiz</h2>
+            <div class="products-grid">
+                <div class="product-card">
+                    <div class='product-image' style= "background-image: url('https://i.pinimg.com/736x/ab/ce/3a/abce3ac3dcfff82a84c112e6b8853748.jpg');">
+                        <div class="product-tag">En Çok Satan</div>
+                    </div>
+                    <div class="product-info">
+                        <h3>Çilekli Rüya</h3>
+                        <p>Taze çilekler ve kremadan yapılmış harika bir tat harmonisi</p>
+                        <div class="product-price">
+                            <span>120 ₺</span>
+                            <a href="siparis.html" class="btn-small">Sipariş Ver</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="product-card">
+                    <div class="product-image" style="background-image: url('https://i.pinimg.com/736x/e9/e0/53/e9e053ba7e14b4f6c59b2c26e3042ff7.jpg');">
+                        <div class="product-tag">Yeni</div>
+                    </div>
+                    <div class="product-info">
+                        <h3>Karamelli Tutku</h3>
+                        <p>Zengin karamel sosu ile süslenmiş çikolatalı pasta</p>
+                        <div class="product-price">
+                            <span>140 ₺</span>
+                            <a href="siparis.html" class="btn-small">Sipariş Ver</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="product-card">
+                    <div class="product-image" style="background-image: url('https://i.pinimg.com/736x/06/f2/ce/06f2ceddf15813523d380b4bc3c9aaff.jpg');">
+                    </div>
+                    <div class="product-info">
+                        <h3>Meyveli Şölen</h3>
+                        <p>Mevsim meyveleri ile süslenmiş hafif ve lezzetli pasta</p>
+                        <div class="product-price">
+                            <span>130 ₺</span>
+                            <a href="siparis.html" class="btn-small">Sipariş Ver</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="product-card">
+                    <div class="product-image" style="background-image: url('https://i.pinimg.com/736x/3e/ff/c3/3effc38cd6a52add9c9242bb662c2bd9.jpg');">
+                        <div class="product-tag">Özel</div>
+                    </div>
+                    <div class="product-info">
+                        <h3>Çikolata Şelalesi</h3>
+                        <p>Bitter, sütlü ve beyaz çikolatanın buluştuğu muhteşem lezzet</p>
+                        <div class="product-price">
+                            <span>150 ₺</span>
+                            <a href="siparis.html" class="btn-small">Sipariş Ver</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="view-more">
+                <a href="menu.html" class="btn">Tüm Lezzetlerimiz</a>
+            </div>
+        </section>
+        
+        <!-- Hizmetlerimiz -->
+        <section class="services">
+            <h2>Hizmetlerimiz</h2>
+            <div class="services-container">
+                <div class="service-card">
+                    <div class="service-icon">🎂</div>
+                    <h3>Özel Günler</h3>
+                    <p>Doğum günleri, yıldönümleri ve özel kutlamalar için özel tasarım pastalar</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">👰</div>
+                    <h3>Düğün Pastaları</h3>
+                    <p>Hayatınızın en özel gününü taçlandıracak muhteşem düğün pastaları</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">🛵</div>
+                    <h3>Hızlı Teslimat</h3>
+                    <p>Şehir içi siparişlerde aynı gün teslimat imkanı</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">👨‍🍳</div>
+                    <h3>Pasta Atölyeleri</h3>
+                    <p>Hafta sonu pasta yapım atölyelerimize katılarak yeteneklerinizi geliştirin</p>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Müşteri Yorumları -->
+        <section class="testimonials">
+            <h2>Mutlu Müşterilerimiz</h2>
+            <div class="testimonials-slider">
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        "Doğum günüm için hazırlanan pasta tam hayallerim gibiydi. Hem görünüşü hem de tadı mükemmeldi. Teşekkürler Fayscake!"
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">AS</div>
+                        <div class="author-info">
+                            <h4>Ayşe Soylu</h4>
+                            <div class="rating">⭐⭐⭐⭐⭐</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        "Düğün pastamız konuklarımız tarafından çok beğenildi. Profesyonel yaklaşımınız ve lezzetin mükemmelliği için teşekkür ederiz."
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">MK</div>
+                        <div class="author-info">
+                            <h4>Mehmet Kaya</h4>
+                            <div class="rating">⭐⭐⭐⭐⭐</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        "Her zaman taze ve kaliteli ürünler. Özellikle meyveli pastaları bir harika. Artık başka yerden pasta almıyoruz."
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">ZA</div>
+                        <div class="author-info">
+                            <h4>Zeynep Aydın</h4>
+                            <div class="rating">⭐⭐⭐⭐⭐</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-navigation">
+                <button class="prev-btn">❮</button>
+                <button class="next-btn">❯</button>
+            </div>
+        </section>
+        
+        <!-- İletişim Bilgileri -->
+        <section class="contact-info">
+            <h2>Bize Ulaşın</h2>
+            <p>Tatlı anlarınızı tatlandırmak için buradayız!</p>
+            <p class="phone">📞 +90 555 123 4567</p>
+            <p class="email">✉️ info@fayscake.com</p>
+            <p class="address">🏠 Tatlı Sokak, No: 42, Şekerköy/İstanbul</p>
+            
+            <div class="social-links">
+                <a href="#" title="Instagram">📸</a>
+                <a href="#" title="Facebook">👍</a>
+                <a href="#" title="Twitter">🐦</a>
+                <a href="#" title="WhatsApp">📱</a>
+            </div>
+            
+            <div class="newsletter">
+                <h3>Yeniliklerden Haberdar Olun</h3>
+                <form>
+                    <input type="email" placeholder="E-posta adresiniz" required>
+                    <button type="submit" class="btn">Abone Ol</button>
+                </form>
+            </div>
+        </section>
+    </div>
+    <!-- Yorumlar Bölümü -->
+<section class="comment-section">
+    <h2>Yorumlarınızı Bırakın</h2>
+    <form id="comment-form">
+        <input type="text" id="comment-name" placeholder="Adınız" required>
+        <textarea id="comment-text" rows="4" placeholder="Yorumunuz" required></textarea>
+        <button type="submit" class="btn">Gönder</button>
+    </form>
+    <div id="comments-container"></div>
+</section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">
+                <h3>Fayscake</h3>
+                <p>Tatlı Dünyası</p>
+            </div>
+            <div class="footer-links">
+                <div class="footer-column">
+                    <h4>Sayfalar</h4>
+                    <ul>
+                        <li><a href="index.html">Ana Sayfa</a></li>
+                        <li><a href="menu.html">Menümüz</a></li>
+                        <li><a href="siparis.html">Sipariş Ver</a></li>
+                        <li><a href="hakkimizda.html">Hakkımızda</a></li>
+                        <li><a href="iletisim.html">İletişim</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Ürünlerimiz</h4>
+                    <ul>
+                        <li><a href="menu.html#pastalar">Pastalar</a></li>
+                        <li><a href="menu.html#kurabiyeler">Kurabiyeler</a></li>
+                        <li><a href="menu.html#makaron">Makaron</a></li>
+                        <li><a href="menu.html#ozel">Özel Tasarımlar</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Çalışma Saatlerimiz</h4>
+                    <ul class="working-hours">
+                        <li>Pazartesi - Cuma: 09:00 - 20:00</li>
+                        <li>Cumartesi: 10:00 - 22:00</li>
+                        <li>Pazar: 10:00 - 18:00</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="copyright">
+            &copy; 2025 Fayscake. Tüm hakları saklıdır.
+        </div>
+    </footer>
+    
+    <script >
+        // script.js
+
+document.addEventListener('DOMContentLoaded', () => {
+    // Mobile Menu Toggle
+    const menuToggle = document.querySelector('.menu-toggle');
+    const menu = document.querySelector('.menu');
+
+    if (menuToggle && menu) {
+        menuToggle.addEventListener('click', () => {
+            menu.classList.toggle('active');
+        });
+    }
+
+    // Comment Section Logic
+    const commentForm = document.getElementById('comment-form');
+    const commentNameInput = document.getElementById('comment-name');
+    const commentTextInput = document.getElementById('comment-text');
+    const commentsContainer = document.getElementById('comments-container');
+
+    // Function to load comments from Local Storage
+    const loadComments = () => {
+        const storedComments = localStorage.getItem('fayscakeComments');
+        if (storedComments) {
+            const comments = JSON.parse(storedComments);
+            comments.forEach(comment => {
+                appendCommentToDOM(comment.name, comment.text);
+            });
+        }
+    };
+
+    // Helper function to append a comment to the DOM
+    const appendCommentToDOM = (name, text) => {
+        const newCommentDiv = document.createElement('div');
+        newCommentDiv.classList.add('comment');
+        newCommentDiv.innerHTML = `
+            <p><strong>${name}:</strong> ${text}</p>
+        `;
+        commentsContainer.prepend(newCommentDiv); // Add new comment to the top
+    };
+
+    if (commentForm && commentsContainer) {
+        commentForm.addEventListener('submit', (e) => {
+            e.preventDefault(); // Prevent default form submission
+
+            const name = commentNameInput.value.trim();
+            const commentText = commentTextInput.value.trim();
+
+            if (name && commentText) {
+                // Add to DOM
+                appendCommentToDOM(name, commentText);
+
+                // Save to Local Storage
+                const storedComments = localStorage.getItem('fayscakeComments');
+                let comments = storedComments ? JSON.parse(storedComments) : [];
+                comments.unshift({ name, text }); // Add new comment to the beginning of the array
+                localStorage.setItem('fayscakeComments', JSON.stringify(comments));
+
+                // Clear form fields
+                commentNameInput.value = '';
+                commentTextInput.value = '';
+            } else {
+                alert('Lütfen adınızı ve yorumunuzu girin.'); // Alert if fields are empty
+            }
+        });
+
+        // Load comments when the page loads
+        loadComments();
+    }
+
+    // Testimonials Slider Logic
+    const testimonialsSlider = document.querySelector('.testimonials-slider');
+    const prevBtn = document.querySelector('.prev-btn');
+    const nextBtn = document.querySelector('.next-btn');
+
+    let currentIndex = 0;
+
+    const showTestimonial = (index) => {
+        const testimonialCards = document.querySelectorAll('.testimonial-card');
+        if (testimonialCards.length === 0) return;
+
+        // Correctly handle looping for previous and next
+        if (index >= testimonialCards.length) {
+            currentIndex = 0; // Loop back to the beginning
+        } else if (index < 0) {
+            currentIndex = testimonialCards.length - 1; // Loop to the end
+        } else {
+            currentIndex = index;
+        }
+
+        // Calculate the translation to show the current testimonial
+        // Assuming each testimonial card takes 100% width of its container
+        const offset = -currentIndex * 100;
+        testimonialsSlider.style.transform = `translateX(${offset}%)`;
+    };
+
+    if (prevBtn && nextBtn && testimonialsSlider) {
+        // Initial setup to ensure the slider shows only one card at a time and slides smoothly
+        // You might need to add these CSS properties to .testimonials-slider in your CSS as well if not already there
+        // testimonialsSlider.style.display = 'flex'; // Already flex in your CSS
+        // testimonialsSlider.style.overflowX = 'hidden'; // Already hidden in your CSS
+        // testimonialsSlider.style.transition = 'transform 0.5s ease'; // Already ease in your CSS
+        
+        // Ensure each testimonial-card within the slider takes 100% width
+        // You might need to add this to your CSS for .testimonial-card:
+        // .testimonial-card { flex: 0 0 100%; max-width: 100%; } // This is already in your CSS
+
+        prevBtn.addEventListener('click', () => {
+            showTestimonial(currentIndex - 1);
+        });
+
+        nextBtn.addEventListener('click', () => {
+            showTestimonial(currentIndex + 1);
+        });
+
+        // Initialize slider to show the first testimonial on page load
+        showTestimonial(0);
+    }
+});
+        
+        </script>
+</body>
+</html>
